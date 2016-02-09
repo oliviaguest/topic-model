@@ -1,0 +1,8 @@
+1st col: file index (there are 68 files - conversations- for each child)
+2nd col: Child’ s name
+3rd col: file index, for a given child: 01a, 01b, 02a, 02b, … 34a, 34b
+4th col: Id of an utterance in a file (items with the same value in a given file belong to the same utterance)
+5th col: word token id within a file
+6th col: CHI or MOTHER
+7th col: the word
+8th col: the stem
