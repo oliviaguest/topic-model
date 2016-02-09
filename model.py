@@ -55,7 +55,7 @@ print(corpus)
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 
-# extract 100 LDA topics
+# extract LDA topics
 topics = 50
 lda = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=topics, update_every=1, chunksize=10, passes=10)
 # print the most contributing words for 20 randomly selected topics
