@@ -60,8 +60,8 @@ gensim.corpora.MmCorpus.serialize('Manchester_for_Olivia_without_stopwords.mm', 
 
 # the following few lines allows us to generate a vector representing an unseen document
 new_doc = "trousers"
-new_vec = dictionary.doc2bow(new_doc.lower().split())
-print(new_vec) # words that do not appeal in the dictionary are ignored
+CDI_words = dictionary.doc2bow(new_doc.lower().split())
+print(CDI_words) # words that do not appeal in the dictionary are ignored
 
 #dictionary.compactify() # remove gaps in id sequence after words that were removed --- not needed since I removed the singleton words before turning texts into dictionary
 print(dictionary)
@@ -79,11 +79,11 @@ lda.print_topics(topics)
 ## the following few lines allows us to generate a vector representing an unseen document
 #new_doc = "trousers"
 
-new_vec = ['book', 'brush', 'button', 'hair', 'key', 'window', 'foot', 'tongue', 'stone', 'bottle', 'box', 'bucket', 'banana', 'finger', 'arm', 'leg', 'brick', 'bin', 'broom', 'comb', 'hammer', 'scissors', 'ball', 'doll', 'radio', 'tea', 'train', 'sink', 'swing', 'telephone', 'bath', 'clock', 'jug', 'coat', 'dress', 'nose', 'pyjamas', 'shirt', 'sock', 'sweater', 'trousers', 'plate', 'eye', 'biscuit', 'cake', 'cheese', 'bed', 'chair', 'lamp', 'table', 'bowl', 'nail', 'rock', 'carrot', 'peas', 'ear', 'apple', 'coffee', 'pen', 'oven', 'toe', 'orange', 'milk', 'sofa', 'bread', 'jeans', 'cup', 'jam', 'necklace', 'mug', 'balloon', 'bicycle', 'boat', 'bus', 'butter', 'car', 'jacket', 'pillow', 'fridge', 'watch', 'spade', 'fork', 'motorcycle', 'truck', 'spoon', 'boots', 'duck', 'penguin', 'deer', 'elephant', 'giraffe', 'horse', 'turtle', 'dog', 'owl', 'cow', 'pony', 'monkey', 'mouse', 'rabbit', 'squirrel', 'bee', 'lion', 'goose', 'turkey', 'bear', 'cat', 'pig', 'donkey', 'sheep', 'spider', 'frog', 'butterfly', 'chicken', 'lamb', 'tiger']
+CDI_words = ['book', 'brush', 'button', 'hair', 'key', 'window', 'foot', 'tongue', 'stone', 'bottle', 'box', 'bucket', 'banana', 'finger', 'arm', 'leg', 'brick', 'bin', 'broom', 'comb', 'hammer', 'scissors', 'ball', 'doll', 'radio', 'tea', 'train', 'sink', 'swing', 'telephone', 'bath', 'clock', 'jug', 'coat', 'dress', 'nose', 'pyjamas', 'shirt', 'sock', 'sweater', 'trousers', 'plate', 'eye', 'biscuit', 'cake', 'cheese', 'bed', 'chair', 'lamp', 'table', 'bowl', 'nail', 'rock', 'carrot', 'peas', 'ear', 'apple', 'coffee', 'pen', 'oven', 'toe', 'orange', 'milk', 'sofa', 'bread', 'jeans', 'cup', 'jam', 'necklace', 'mug', 'balloon', 'bicycle', 'boat', 'bus', 'butter', 'car', 'jacket', 'pillow', 'fridge', 'watch', 'spade', 'fork', 'motorcycle', 'truck', 'spoon', 'boots', 'duck', 'penguin', 'deer', 'elephant', 'giraffe', 'horse', 'turtle', 'dog', 'owl', 'cow', 'pony', 'monkey', 'mouse', 'rabbit', 'squirrel', 'bee', 'lion', 'goose', 'turkey', 'bear', 'cat', 'pig', 'donkey', 'sheep', 'spider', 'frog', 'butterfly', 'chicken', 'lamb', 'tiger']
 
-for i, vec in enumerate(new_vec):
-  #new_vec = ['cat']
-  #print(new_vec) # words that do not appeal in the dictionary are ignored
+for i, vec in enumerate(CDI_words):
+  #CDI_words = ['cat']
+  #print(CDI_words) # words that do not appeal in the dictionary are ignored
 
 
   doc_bow = dictionary.doc2bow([vec])#new_doc.lower().split())
