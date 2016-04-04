@@ -72,17 +72,22 @@ print(corpus)
 # This is to load and run an LDA model
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
+if True:
+  # extract LDA topics
+  topics = 20
+  model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=10, update_every=1, chunksize=10, passes=1)
+  #lda = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=topics, update_every=1, chunksize=10, passes=5)
+  # print the most contributing words for 20 randomly selected topics
+  model.print_topics(topics)
+  ## the following few lines allows us to generate a vector representing an unseen document
+  #new_doc = "trousers"
 
-# extract LDA topics
-topics = 20
-lda = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=100, update_every=1, chunksize=10, passes=10)
-#lda = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=topics, update_every=1, chunksize=10, passes=5)
-# print the most contributing words for 20 randomly selected topics
-lda.print_topics(topics)
-## the following few lines allows us to generate a vector representing an unseen document
-#new_doc = "trousers"
+
+  ## extract 400 LSI topics; use the default one-pass algorithm
+  #model = gensim.models.lsimodel.LsiModel(corpus=corpus, id2word=dictionary, num_topics=400)
+  #model.print_topics(10)
 
 output = open('output.pkl', 'wb')
-pickle.dump(lda, output)
+pickle.dump(model, output)
 output.close()
 
