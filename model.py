@@ -2,6 +2,7 @@ import csv, logging, gensim, bz2
 import numpy as np
 from pprint import pprint   # pretty-printer
 import pickle
+import sys
 
 #with open('Manchester_for_Olivia_without_stopwords.txt', 'rb') as csvfile:
 with open('ManchesterCorpus_excluding_stopwords_ver2.txt', 'rb') as csvfile:
@@ -72,20 +73,21 @@ print(corpus)
 # This is to load and run an LDA model
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-if True:
-  # extract LDA topics
-  topics = 20
-  model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=10, update_every=1, chunksize=10, passes=1)
-  #lda = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=topics, update_every=1, chunksize=10, passes=5)
-  # print the most contributing words for 20 randomly selected topics
-  model.print_topics(topics)
-  ## the following few lines allows us to generate a vector representing an unseen document
-  #new_doc = "trousers"
-
-
-  ## extract 400 LSI topics; use the default one-pass algorithm
-  #model = gensim.models.lsimodel.LsiModel(corpus=corpus, id2word=dictionary, num_topics=400)
-  #model.print_topics(10)
+if len(sys.argv) > 1:
+  if str(sys.argv[1]) == 'lda':
+    # extract LDA topics
+    topics = 20
+    model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=10, update_every=1, chunksize=10, passes=1)
+    #lda = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=topics, update_every=1, chunksize=10, passes=5)
+    # print the most contributing words for 20 randomly selected topics
+    model.print_topics(topics)
+    ## the following few lines allows us to generate a vector representing an unseen document
+    #new_doc = "trousers"
+else:
+  # extract 400 LSI topics; use the default one-pass algorithm
+  model = gensim.models.lsimodel.LsiModel(corpus=corpus, id2word=dictionary, num_topics=200)
+  print '200 topics'
+  model.print_topics(200)
 
 output = open('output.pkl', 'wb')
 pickle.dump(model, output)
