@@ -20,8 +20,8 @@ python clustering.py
 # Figures
 ##Dendrogram
 
-![Dendrogram](https://raw.githubusercontent.com/oliviaguest/topic-model/master/dendrogram.jpg)
+![Dendrogram](https://raw.githubusercontent.com/oliviaguest/topic-model/master/dendrogram.png)
 
 ##PCA
 
-![Dendrogram](https://raw.githubusercontent.com/oliviaguest/topic-model/master/pca.jpg)
+![Dendrogram](https://raw.githubusercontent.com/oliviaguest/topic-model/master/pca.png)
