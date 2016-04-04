@@ -5,13 +5,17 @@ The corpus is based on the Manchester child language corpus (downloaded from the
 # How to run
 
 ## Topic modeling
-To create the models and save the to file run:
+To create the LDA model and save the to file, run:
 ```
-python model.py
+python model.py lda
+```
+Or if you prefer to run LSI/LSA, run:
+```
+python model.py lsi
 ```
 
 ## Clustering
-To generate the figures and save them to file run: 
+To generate the figures and save them to file, run: 
 
 ```
 python clustering.py
