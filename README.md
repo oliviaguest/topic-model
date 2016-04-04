@@ -1,5 +1,5 @@
 # LSI and LDA modelling
-This repository contains some basic topic modelling (using the gensim library) in Python.
+This repository contains some basic topic modelling (using the [gensim library](http://radimrehurek.com/gensim/)) in Python.
 The corpus is based on the Manchester child language corpus (downloaded from the CHILDES website: http://childes.psy.cmu.edu/).
 
 # How to run
